@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/css/cstyle.css">
 <h3 id="feedbacktitle">Your Cart</h3>
-<div class="onlycenter">
+<div class="otheronlycenter">
 {{#if cart}}
 
 <ul>
@@ -37,7 +37,7 @@ No remarks
 </div>
 <p id="displaytotalprice">Total:${{Rtotal}}</p>
 {{else}}
-There is nothing in your cart.
+<p style="text-align:center;">There is nothing in your cart.</p>
 {{/if}}
 {{#if cart}}
 <a class="addfeedback" href="../shopping/paymenttype">Pay</a>

@@ -1,5 +1,9 @@
 <html>
+{{#if shopp.quantity}}
 
+{{else}}
+<p class="outofstockp" style="display:absolute;">Out Of Stock</p>
+{{/if}}
 <h3 id="feedbacktitle">{{shopp.itemName}}</h3>
 <link rel="stylesheet" href="/css/cstyle.css">
 <script src="https://kit.fontawesome.com/cab24c7935.js"></script>
@@ -39,21 +43,26 @@ ratingstars.appendChild(stars);
 var Average=document.getElementById("averagerate");
 Average.appendChild(ratingstars);
 </script>
-{{#if shopp.quantity}}
 
-{{else}}
-<p class="outofstockp">Out Of Stock</p>
-{{/if}}
 
 <div class="oneitemallstuff">
 {{shopp.description}}
 <br>
-{{shopp.dateofDelivery}}
 
 </div>
-price:${{shopp.price}}
+<br>
+<br>
+<p style="font-weight: bold; font-size:20px; float:right;">Product Code:{{shopp.itemCode}}</p>
+<br>
+<br>
+<p style="font-weight: bold; font-size:20px; float:right;">Price:${{shopp.price}}</p>
+<br>
+
 {{#if shopp.quantity}}
+
 <div class="addingintocartinfo">
+  In Stock Date and Time:<p style="color:blue;">{{shopp.dateofDelivery}}</p>
+  <br>
 <form action="../addtocartt/{{shopp.id}}" method="post">
 <label class="font-italic" for="quantity">Quantity:</label><br>
 <input type="number" name="quantity" min="1" max={{shopp.quantity}} value="1">
@@ -67,10 +76,15 @@ price:${{shopp.price}}
 <a class="addfeedback" href="../shop">Back</a>
 		
 {{else}}
+<div class="addingintocartinfo">
+In Stock Date and Time:<p style="color:blue;">{{shopp.dateofDelivery}}</p>
+  <br>
+
+</div>
 {{/if}}
-<div class="onlycenter">
+<div class="otheronlycenter">
 <div class="reviewsession">
-Review:
+<p style="font-weight:bold; font-size:50px;">Review:</p>
 {{#if feedbackk}}
 
 				{{#each feedbackk}}
@@ -112,10 +126,10 @@ displayingfeedback.appendChild(ratingstars);
 
 
 <div class="reviewprofile">
-      Name:  {{Cuser.name}}
+      Name:  {{user.name}}
         {{!-- /\{{CuserId}} --}}
-        {{#if Cuser.profileURL}}
-        <img src="{{Cuser.imageurl}}" alt="Poster unavailable" class="reviewprfoilepic">
+        {{#if user.profileURL}}
+        <img src="{{user.profileURL}}" alt="Poster unavailable" class="reviewprfoilepic">
         {{else}}
 <img src="/img/profile.png" alt="Poster unavailable" class="reviewprfoilepic">
         {{/if}}
@@ -123,9 +137,9 @@ displayingfeedback.appendChild(ratingstars);
 <div class="reviewmessage">
         {{Message}}
 </div>
-        {{#if imageurl}}
+        {{#if imgurl}}
               
-							<img src="{{feedbackurl}}" alt="Poster unavailable" class="displayreviewpic">
+							<img src="{{imgurl}}" alt="Poster unavailable" class="displayreviewpic">
 						
             {{/if}}
             </div>
