@@ -48,7 +48,7 @@ router.post('/messageemailsend',ensureAuthenticated, (req, res) => {
     let DropdownPorS = req.body.PorS.toString();
     
     let DropdownSType=req.body.DropdownSType;
-    let feedbackurl=req.body.posterURL;
+    let imgurl=req.body.posterURL;
 
     let CuserId = req.user.id;
     if(DropdownPorS=="Product"){
@@ -61,7 +61,7 @@ router.post('/messageemailsend',ensureAuthenticated, (req, res) => {
         productcode,
 		DropdownSType,
         Message,
-        feedbackurl,
+        imgurl,
         rate,
         CuserId
     }).then((feedback) => {
@@ -74,7 +74,7 @@ router.post('/messageemailsend',ensureAuthenticated, (req, res) => {
             DropdownPorS,
             DropdownSType,
             Message,
-            feedbackurl,
+            imgurl,
             rate,
             CuserId
         })
