@@ -1,55 +1,61 @@
-{{!-- 
-			<link rel="stylesheet" href="/css/nav-bar.css">
-			<ul class="navbar-nav ml-auto">
-				{{#if user}}
-				<li class="nav-item dropdown">
-					<div class="dropdown-menu">
-					<a href="javascript:void(0)" class="dropbtn">
-						<img src="https://oakliquorcabinet.com/assets/images/avatars/no-avatar.png"></a>
-					<div class="dropdown-content">
-					<a href="/user/profile/:id" class="dropdown-item">Profile</a>
-					<a href="/staffLogout" class="dropdown-item">Logout</a>
-				</div>
-				</div>
-				</li>
-				<li><a href="/feedback/customerFeedbacks">Feedback</a></li>
-				<li><a href="/main_s/delivery/all">Delivery</a></li>
-				<li class="nav-item dropdown">
-					<div class="dropdown-menu">
-					<a href="javascript:void(0)" class="dropbtn">Stocks</a>
-					<div class="dropdown-content">
-					<a href="/stocks/viewInstocks" class="dropdown-item">View instocks</a>
-					<a href="/stocks/deliveryStatusUpdate" class="dropdown-item">Delivery Status Status Update</a>
-				</div>
-				</div>
-				</li>
-				<li><a href="/orders">Orders</a></li>
-				<li><a href="/salesRecord">Sales Record</a></li>
-				
-				{{/if}}
-			</ul>
-		</div>
-	</div>
-</nav> --}}
-
-
-{{!-- <link rel="stylesheet" href="/css/nav-bar.css"> --}}
-<link rel="stylesheet" href="/css/nav-bar.css">
-{{#if user}}
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+{{#if cuser}}
+<link rel="stylesheet" href="/css/cstyle.css">
+<nav class="navbar navbar-expand-sm navbar-dark  mb-3 cnavbar">
 	<div class="container">
-		<a class="navbar-brand" href="/">Zalora</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<a class="navbar-brand" href="/chome">Zalora</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+				  aria-expanded="false"
+				  aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
-
-
-
-			<ul class="navbar-nav mt-1">
-				{{#if admin}}
+			<ul class="navbar-nav ml-auto">
+			
 				<li class="nav-item">
+					<a class="nav-link" href="/shopping/shop">Store</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/feedbackk/messageemail">Send Feedback</a>
+				</li>
+				
+		  <li class="nav-item">
+						<a href="/shopping/cartfull" class="nav-link"> 
+						<span class="cart-info__icon mr-lg-3"><i class="fas fa-shopping-cart"></i></span>Cart</a>
+					</li>
+					<li class="nav-item">
+						<a href="/shopping/wishlist" class="nav-link">WishList</a>
+					</li>
+						<li class="nav-item">
+						<a href="/cuser/profile/{{user.id}}" class="nav-link">Profile</a>
+					</li>
+					
+					<li class="nav-item">
+						<a href="/logout" class="nav-link">Logout</a>
+					</li>
+					
+			</ul>
+		</div>
+	</div>
+</nav>
+
+{{/if}}
+
+
+
+
+{{#if admin}}
+<link rel="stylesheet" href="/css/cstyle.css">
+<nav class="navbar navbar-expand-sm navbar-dark  mb-3 cnavbar">
+	<div class="container">
+		<a class="navbar-brand" href="/chome">Zalora</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+				  aria-expanded="false"
+				  aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
 					<a class="nav-link" href="/salesRecord">Sales Record</a>
 				</li>
 				<li class="nav-item">
@@ -74,7 +80,7 @@
 						id="navbarDropdownMenuLink">Setting</a>
 					<div class="dropdown-menu">
 						<a href="/user/profile/:id" class="dropdown-item">Profile</a>
-						<a href="/staffLogout" class="dropdown-item">Logout</a>
+						<a href="/logout" class="dropdown-item">Logout</a>
 					</div>
 				</li>
 				<li class="nav-item dropdown">
@@ -82,53 +88,40 @@
 						id="navbarDropdownMenuLink">Register</a>
 					<div class="dropdown-menu">
 						<a href="/staffRegister" class="dropdown-item">Register for Admin</a>
-						<a href="" class="dropdown-item">Register for Merchants</a>
+						<a href="/showRegister" class="dropdown-item">Register for Merchants</a>
 					</div>
 				</li>
-				{{/if}}
+				
+			</ul>
+		</div>
+	</div>
+</nav>
 
-				{{#if cuser}}
-				<li class="nav-item">
-					<a class="nav-link" href="/shopping/shop">Store</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/feedbackk/messageemail">Send Feedback</a>
-				</li>
+{{/if}}
 
-				<li class="nav-item">
-					<a href="/shopping/cartfull" class="nav-link">
-						<span class="cart-info__icon mr-lg-3"><i class="fas fa-shopping-cart"></i></span>Cart</a>
-				</li>
-				<li class="nav-item">
-					<a href="/shopping/wishlist" class="nav-link">WishList</a>
-				</li>
-				{{!-- <li class="nav-item">
-						<a href="../shopping/paymenttype" class="nav-link">Payment</a>
-					</li> --}}
-				{{!-- {{#if user.profileURL}}
-						<li class="nav-item">
-						<img class="narprofile" src="{{user.profileURL}}"></li>
-						<li class="nav-item"></li>
-						{{else}}
-						<li class="nav-item">
-						<img class="narprofile" src="img/profile.png"></li>
-						<li class="nav-item"></li>
-						{{/if}} --}}
-				<a href="/cuser/profile/{{user.id}}" class="nav-link">Profile</a>
-				</li>
 
-				<li class="nav-item">
-					<a href="/logout" class="nav-link">Logout</a>
-				</li>
+<link rel="stylesheet" href="/css/nav-bar.css">
 
-				{{/if}}
+				
+			
 				{{#if muser}}
 				<style>
 					.bg-primary {
 						background-color: #f4b642 !important;
 					}
 				</style>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+	<div class="container">
+		<a class="navbar-brand" href="/chome">Zalora</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
 
+
+
+			<ul class="navbar-nav mt-1">
 				
 	
 							<ul class="navbar-nav ml-auto">
@@ -149,9 +142,7 @@
 								<li class="nav-item">
 									<a href="/logout" class="nav-link">Logout</a>
 								</li>
-								
-								{{/if}}
-							</ul>
+												</ul>
 						</div>
 					</div>
 				</nav>
@@ -164,4 +155,5 @@
 		</div>
 	</div>
 </nav>
-{{/if}}
+								{{/if}}
+			
