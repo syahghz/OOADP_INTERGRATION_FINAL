@@ -1,5 +1,8 @@
 <link rel="stylesheet" href="/css/cstyle.css">
+
+
 <script>
+
 //function showPCode() {
   //  {{!-- var node = document.getElementById('productcode')
     //var visibility = node.style.visibility;
@@ -130,7 +133,7 @@ function checkingstar(){
 	<input type="file" id="posterUpload" name="posterUpload" accept="image/png,image/jpeg,image/jpg,image/gif"> 
 
 <img id="poster" src="/img/no-image.jpg" alt="" class="border img-thumbnail img-fluid"
-                        style="height:95%;width:100%">
+                        style="height:70%;width:70%">
     {{!—- Hidden field to submit URL of poster to the server --}}
 <input id="posterURL" type="hidden" name="posterURL">
 {{!-- Practical 10 Exercise 01 --}}
@@ -149,13 +152,16 @@ function checkingstar(){
 							<input class="form-check-input" onclick="javascript:showPCode();" type="radio" id="Product" value="Product" name="PorS"><br>
 							<label class="form-check-label" for="Product">Product</label><br>
 						</div>
-			
+						
 	<div  id="productcodebox" style="display: none;">
-			<label class="font-italic" for="productcode">productcode:</label><br>
+			<label class="font-italic" for="productcode">product Name:</label><br>
 			<select id="itisforproudectcode" name="productcode">
 				{{#if order}}
 				{{#each order}}
-				<option value={{stockrec.id}}>{{stockrec.itemName}}</option>
+				
+				<option value={{stockrec.id}}>Name:{{stockrec.itemName}} <br>        
+				<p style="color:green;">Product Code:{{stockrec.itemCode}} </p> 
+					 </option>
 				{{/each}}
 				{{/if}}
 </select>
