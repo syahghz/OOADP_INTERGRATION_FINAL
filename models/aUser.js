@@ -43,6 +43,9 @@ const User = db.define('user', {
     profileURL:{
         type: Sequelize.STRING
     },
+    cRegion:{
+        type: Sequelize.STRING
+    },
     type:{
         type: Sequelize.STRING
     }
