@@ -3,36 +3,35 @@
 <nav class="navbar navbar-expand-sm navbar-dark  mb-3 cnavbar">
 	<div class="container">
 		<a class="navbar-brand" href="/chome">Zalora</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-				  aria-expanded="false"
-				  aria-label="Toggle navigation">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav ml-auto">
-			
+
 				<li class="nav-item">
 					<a class="nav-link" href="/shopping/shop">Store</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/feedbackk/messageemail">Send Feedback</a>
 				</li>
-				
-		  <li class="nav-item">
-						<a href="/shopping/cartfull" class="nav-link"> 
+
+				<li class="nav-item">
+					<a href="/shopping/cartfull" class="nav-link">
 						<span class="cart-info__icon mr-lg-3"><i class="fas fa-shopping-cart"></i></span>Cart</a>
-					</li>
-					<li class="nav-item">
-						<a href="/shopping/wishlist" class="nav-link">WishList</a>
-					</li>
-						<li class="nav-item">
-						<a href="/cuser/profile/{{user.id}}" class="nav-link">Profile</a>
-					</li>
-					
-					<li class="nav-item">
-						<a href="/logout" class="nav-link">Logout</a>
-					</li>
-					
+				</li>
+				<li class="nav-item">
+					<a href="/shopping/wishlist" class="nav-link">WishList</a>
+				</li>
+				<li class="nav-item">
+					<a href="/cuser/profile/{{user.id}}" class="nav-link">Profile</a>
+				</li>
+
+				<li class="nav-item">
+					<a href="/logout" class="nav-link">Logout</a>
+				</li>
+
 			</ul>
 		</div>
 	</div>
@@ -48,14 +47,13 @@
 <nav class="navbar navbar-expand-sm navbar-dark  mb-3 cnavbar">
 	<div class="container">
 		<a class="navbar-brand" href="/chome">Zalora</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-				  aria-expanded="false"
-				  aria-label="Toggle navigation">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav ml-auto">
-			<li class="nav-item">
+				<li class="nav-item">
 					<a class="nav-link" href="/salesRecord">Sales Record</a>
 				</li>
 				<li class="nav-item">
@@ -91,7 +89,7 @@
 						<a href="/showRegister" class="dropdown-item">Register for Merchants</a>
 					</div>
 				</li>
-				
+
 			</ul>
 		</div>
 	</div>
@@ -102,14 +100,14 @@
 
 <link rel="stylesheet" href="/css/nav-bar.css">
 
-				
-			
-				{{#if muser}}
-				<style>
-					.bg-primary {
-						background-color: #f4b642 !important;
-					}
-				</style>
+
+
+{{#if muser}}
+<style>
+	.bg-primary {
+		background-color: #f4b642 !important;
+	}
+</style>
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
 	<div class="container">
 		<a class="navbar-brand" href="/chome">Zalora</a>
@@ -122,38 +120,37 @@
 
 
 			<ul class="navbar-nav mt-1">
-				
-	
-							<ul class="navbar-nav ml-auto">
-								
-								<li class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
-										id="navbarDropdownMenuLink">Delivery
-									</a>
-									<div class="dropdown-menu">
-										<a href="/form/showsendForm" class="dropdown-item">Delivery Dispatch Order</a>
-										<a href="/form/saveForm" class="dropdown-item">Delivery Dispatch Records</a>
-									</div>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="/form/trash">Trash</a>
-								</li>
 
-								<li class="nav-item">
-									<a href="/logout" class="nav-link">Logout</a>
-								</li>
-												</ul>
+
+				<ul class="navbar-nav ml-auto">
+
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+							id="navbarDropdownMenuLink">Delivery
+						</a>
+						<div class="dropdown-menu">
+							<a href="/form/showsendForm" class="dropdown-item">Delivery Dispatch Order</a>
+							<a href="/form/saveForm" class="dropdown-item">Delivery Dispatch Records</a>
 						</div>
-					</div>
-				</nav>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/form/trash">Trash</a>
+					</li>
 
-
-
-
-
-			</ul>
+					<li class="nav-item">
+						<a href="/logouteu" class="nav-link">Logout</a>
+					</li>
+				</ul>
 		</div>
 	</div>
 </nav>
-								{{/if}}
-			
+
+
+
+
+
+</ul>
+</div>
+</div>
+</nav>
+{{/if}}
