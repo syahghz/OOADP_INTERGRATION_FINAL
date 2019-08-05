@@ -1,31 +1,93 @@
-
-
 <!--.col-	.col-sm-	.col-md-	.col-lg-	.col-xl- -->
 
+<head>
+	<style>
+		#query {
+			width: 20%;
+			padding: 10px 0;
+			font-size: 16px;
+			color: #2c2727;
+			letter-spacing: 1px;
+			margin-bottom: 30px;
+			border: none;
+			border-bottom: 1px solid #f4b642;
+
+			background: transparent;
+		}
+
+		#search {
+			border: 1px solid #f4b642;
+			background: none;
+			padding: 10px 20px;
+			font-size: 20px;
+			font-family: 'Courier New', Courier, monospace;
+			cursor: pointer;
+			margin: 10px;
+			color: black;
+			transition: 0.8s;
+			position: relative;
+			overflow: hidden;
+			border-radius: 5px;
+
+		}
+
+		#search:hover {
+			color: #f4f142;
+
+		}
+
+		#search::before {
+			content: "";
+			position: :absolute;
+			left: 0;
+			width: 100%;
+			height: 0%;
+			background: #f4b642;
+			z-index: -1;
+			transition: 0.8s;
+			top: 0;
+			border-radius: 50% 50% 0 0;
+		}
+
+		#search:hover::before {
+			height: 180%;
+		}
+
+		.border-primary {
+			border-color: #f4b642 !important;
+		}
+
+		.text-primary {
+			color: #f4b642 !important;
+		} 
+	</style>
+
+</head>
 
 <div class="container">
 	<input id="query"></input>
-	<input id="search" type="button" value="search"/>
+	<input id="search" type="button" value="search" />
 	<div class="card card-body">
-		<h3 class="text-primary">Trash Can</h3>
+		<h3 class="text-primary">Recently Deleted...</h3>
 		<div id="card" class="card border-primary mb-2 w-100 mx-auto">
-		
+
 		</div>
 	</div>
 
 	<script>
-		$(document).ready( function() {
-			$("#search").click( function() {
+		$(document).ready(function () {
+			$("#search").click(function () {
 				var query = $("#query").val();
 				$.ajax({
 					url: "/form/search/ajax/" + query,
 					type: "GET",
-					success: function(data) {
+					success: function (data) {
 						var forms = data.forms;
 						$("#card").html("");
-						$.each(forms, function(index, form) {
+						$.each(forms, function (index, form) {
 							var row = `
-							<div class="card-header">
+							
+							
 								<h5 class="card-title">${form.itemName}</h5>
 							</div>
 							<div class="card-body">
@@ -56,7 +118,7 @@
 											</div>
 											<div class="col-sm-12 col-md-6 col-lg-3">
 												<p class="font-italic">Date of Delivery</p>
-												<p class="text-info">${form.dateofDelivery}</p>
+												<p class="text-info">{{ formatDate form.dateofDelivery 'DD/MM/YYYY'}}</p>
 											</div>
 										</div>
 										<div class="row">
@@ -78,7 +140,7 @@
 										<a href="/form/delete/${form.id}" class="card-link" data-toggle="confirmation"
 											data-title="Want to recover?">
 											<i class="far fa-trash-alt"></i>
-											Recover
+											Delete
 										</a>
 									</div>
 								</div>

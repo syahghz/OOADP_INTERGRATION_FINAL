@@ -398,7 +398,7 @@ router.post('/upload', ensureAuthenticated, (req, res) => {
 
 router.get('/delete/:id', ensureAuthenticated, (req, res) => {
     var dispatchId = req.params.id;
-    Video.findOne({
+    Form.findOne({
         where: {
             id: dispatchId
         }

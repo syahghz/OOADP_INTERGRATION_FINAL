@@ -8,13 +8,13 @@
     border-color: #f4b642!important;
 }
 .text-primary{
-	color:#f4b642;
+	color:#f4b642!important;
 }
 	</style>
 </head>
 <div class="container">
 	{{#if forms}}
-
+	<h1 class="text-primary">Dispatch Records</h1>
 	<div class="card card-body">
 		<h3 class="text-primary">Order</h3>
 		{{#each forms}}
@@ -56,7 +56,7 @@
 						</div>
 						<div class="row">
 							<div class="col-sm-12 col-md-6 col-lg-10">
-								<p class="font-italic">Reference</p>
+								<p class="font-italic">Reference Number</p>
 								<p class="text-info">{{referenceNo}}</p>
 							</div>
 						</div>
