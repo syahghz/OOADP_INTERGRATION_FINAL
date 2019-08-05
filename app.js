@@ -189,6 +189,11 @@ if(req.user){
 		
 	res.locals.muser = req.user;}
 }
+if (req.user){
+	if(req.user.type=="delMan"){
+		
+		res.locals.delMan = req.user;}
+}
 
 	next();
 });
