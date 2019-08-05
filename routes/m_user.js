@@ -67,7 +67,7 @@ router.post('/m_register', (req, res) => {
                     password = hashedPassword;
 
                     // Create new user record
-                    User.create({ name, email, password })
+                    User.create({ name, email, password, type })
                         .then(user => {
                             alertMessage(res, 'success', user.name + ' added. Please login', 'fas fa-sign-in-alt', true);
                             res.redirect('/m_user/showRegister');
