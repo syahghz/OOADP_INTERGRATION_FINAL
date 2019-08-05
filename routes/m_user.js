@@ -37,12 +37,13 @@ router.post('/m_register', (req, res) => {
         errors.push({ text: 'Password must be at least 4 characters' });
     };
     if (errors.length > 0) {
-        res.render('user/m_register', {
+        res.render('m_user/m_register', {
             errors,
             name,
             email,
             password,
-            password2
+            password2,
+            type
         });
     } else {
         // If all is well, checks if user is already registered
@@ -69,7 +70,7 @@ router.post('/m_register', (req, res) => {
                     User.create({ name, email, password })
                         .then(user => {
                             alertMessage(res, 'success', user.name + ' added. Please login', 'fas fa-sign-in-alt', true);
-                            res.redirect('/showLogin');
+                            res.redirect('/m_user/showRegister');
                         })
                         .catch(err => console.log(err));
                 }
