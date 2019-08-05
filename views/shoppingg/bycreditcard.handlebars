@@ -68,14 +68,14 @@ function valid_credit_card(value) {
 
 function checking(){
 	//var yesorno=false;
-	alert("hiiii");
-	var cardnum= document.forms["creditcardformpay"]["cardnumber"].value;
+	
+	var cardnumm= document.forms["creditcardformpay"]["cardnumber"].value;
 	var exp= document.forms["creditcardformpay"]["expiry"].value;
 	var expfront=parseInt(exp.substring(0, 2));
 	var expback=parseInt(exp.toString().substr(-2));
 	var year=parseInt(new Date().getFullYear().toString().substr(-2));
 	var month=parseInt(new Date().getMonth())+1;
-
+	//var cardnum= str.replace(" ", "");
  //alert(document.forms["creditcardformpay"]["CCType"].checked);
  //alert(document.forms["creditcardformpay"]["MasterCard"].checked);
  if(document.forms["creditcardformpay"]["MasterCard"].checked==false){
