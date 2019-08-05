@@ -153,171 +153,48 @@ router.put('/updateDelDetails/:id', (req, res) => {
 });
 
 
-// // try delivery man home
-// router.get('/home', (req, res) => {
-//     var d = new Date();
-
-//     //var lastDay = new Date(date.getFullYear(), d.getMonth() + 1, 0);
-//     //document.getElementById('trying').innerHTML = lastDay;
-//     var month = d.getMonth() + 1;
-//     var day = d.getDate();
-//     var year = d.getFullYear();
-//     // day = day + i;
-//     var tmr = day + 1;
-//     var tmr2 = day + 2;
-//     var tmr3 = day + 3;
-//     var tmr4 = day + 4;
-
-//     if (month < 10) {
-//         month = '0' + month;
-//     }
-
-
-//     //i++;
-//     dateToday = day + "/" + month + "/" + year;
-//     dateTmr = tmr + "/" + month + "/" + year;
-//     dateTmr2 = tmr2 + "/" + month + "/" + year;
-//     dateTmr3 = tmr3 + "/" + month + "/" + year;
-//     dateTmr4 = tmr4 + "/" + month + "/" + year;
-//     // date="9/07/2019"
-//     // console.log(dateToday)
-//     orderItem.findAll({
-
-//         where: {
-
-//             delDate: dateToday,
-//             // delDate: dateTmr, 
-//             // delDate : dateTmr2, 
-//             // delDate : dateTmr3, 
-//             // delDate : dateTmr4
-
-//         }
-//     }).then((deli1) => {
-//         orderItem.findAll({
-
-//             where: {
-
-
-//                 delDate: dateTmr,
-//                 // delDate : dateTmr2, 
-//                 // delDate : dateTmr3, 
-//                 // delDate : dateTmr4
-
-//             }
-//         }).then((deli2) => {
-//             orderItem.findAll({
-
-//                 where: {
-
-
-//                     // delDate: dateTmr,
-//                     delDate: dateTmr2,
-//                     // delDate : dateTmr3, 
-//                     // delDate : dateTmr4
-
-//                 }
-//             }).then((deli3) => {
-//                 orderItem.findAll({
-
-//                     where: {
-
-
-//                         // delDate: dateTmr,
-//                         // delDate : dateTmr2, 
-//                         delDate: dateTmr3,
-//                         // delDate : dateTmr4
-
-//                     }
-//                 }).then((deli4) => {
-//                     orderItem.findAll({
-
-//                         where: {
-
-
-//                             // delDate: dateTmr,
-//                             // delDate : dateTmr2, 
-//                             // delDate : dateTmr3, 
-//                             delDate: dateTmr4
-
-//                         }
-//                     }).then((deli5) => {
-//                         orderItem.findAll({
-//                             where: {
-//                                 delDate: dateTmr,
-//                             },
-
-//                                 // ItemName : 'item4'
-//                                 // delDate : dateTmr2, 
-//                                 // delDate : dateTmr3, 
-//                                 // cOrderNo : cOrderNo
-//                             // where: {
-
-
-//                             //     // delDate: dateTmr,
-//                             //     // delDate : dateTmr2, 
-//                             //     // delDate : dateTmr3, 
-//                             //     cOrderNo : cOrderNo
-
-//                             // },
-//                             raw: true
-//                         }).then((order) => {
-//                             console.log(order)
-//                             for (let index = 0; index < 5; index++) {
-//                                 const count = index;
-
-//                             }
-//                             res.render('delivery/deliveryHome', {
-
-//                                 deli1: deli1,
-
-//                                 deli2: deli2,
-//                                 deli3: deli3,
-//                                 deli4: deli4,
-//                                 deli5: deli5,
-
-//                                 // technically cn comment the ones below
-//                                 dateToday: dateToday,
-//                                 dateTmr: dateTmr,
-//                                 dateTmr2: dateTmr2,
-//                                 // dateTmr:dateTmr, 
-//                                 // dateTmr2: dateTmr2, 
-//                                 dateTmr3: dateTmr3,
-//                                 dateTmr4: dateTmr4,
-//                                 order:order,
-
-
-//                             })
-//                         })
-
-//                     })
-//                 })
-//             })
-
-//             // deli.findAll({
-//             // // console.log(deliveries);
-//             //     where : {
-//             //         delDate : dateTmr
-//             //     }
-//             //     }).then((deliveries) => {
-
-//         })
-//     })
-// })
-
-// // })
-
-
-
-
 router.get('/home', (req, res) => {
-    // for (i = 0; i < 1000000; i++) {
+	var d = new Date();
 
-    // }
+	//var lastDay = new Date(date.getFullYear(), d.getMonth() + 1, 0);
+	//document.getElementById('trying').innerHTML = lastDay;
+	var month = d.getMonth() + 1;
+	var day = d.getDate();
+	var year = d.getFullYear();
+	// day = day + i;
+	var tmr = day + 1;
+	// var tmr2 = day + 2;
+	// var tmr3 = day + 3;
+	// var tmr4 = day + 4;
+
+	if (month < 10) {
+		month = '0' + month;
+	}
+	if (day < 10) {
+		day = '0' + day;
+	}
+	if (tmr < 10) {
+		tmr = '0' + tmr;
+	}
+	// if (tmr2 < 10) {
+	// 	tmr2 = '0' + tmr2;
+	// }
+	// if (tmr3 < 10) {
+	// 	tmr3 = '0' + tmr3;
+	// }
+	// if (tmr4 < 10) {
+	// 	tmr4 = '0' + tmr4;
+	// }
+
+	//i++;
+	date1 = day + "/" + month + "/" + year;
+	date2 = tmr + "/" + month + "/" + year;
+	// date3 = tmr2 + "/" + month + "/" + year;
+	// date4 = tmr3 + "/" + month + "/" + year;
+    // date5 = tmr4 + "/" + month + "/" + year;
+    delMan = "Steven"
     orderDs.findAll({
-        include: [stockRec, payments],
-
-
-
+        include: [{model : stockRec,}, {model: payments, where:{deldate: date1, delMan: delMan}}],
 
     }).then((order) => {
         payments.findAll({
@@ -340,6 +217,175 @@ router.get('/home', (req, res) => {
             })
         })
     })
+});
+
+
+
+
+
+router.get('/tomorrow', (req, res) => {
+	var d = new Date();
+
+	//var lastDay = new Date(date.getFullYear(), d.getMonth() + 1, 0);
+	//document.getElementById('trying').innerHTML = lastDay;
+	var month = d.getMonth() + 1;
+	var day = d.getDate();
+	var year = d.getFullYear();
+	// day = day + i;
+	var tmr = day + 1;
+	// var tmr2 = day + 2;
+	// var tmr3 = day + 3;
+	// var tmr4 = day + 4;
+
+	if (month < 10) {
+		month = '0' + month;
+	}
+	if (day < 10) {
+		day = '0' + day;
+	}
+	if (tmr < 10) {
+		tmr = '0' + tmr;
+	}
+	// if (tmr2 < 10) {
+	// 	tmr2 = '0' + tmr2;
+	// }
+	// if (tmr3 < 10) {
+	// 	tmr3 = '0' + tmr3;
+	// }
+	// if (tmr4 < 10) {
+	// 	tmr4 = '0' + tmr4;
+	// }
+
+	//i++;
+	date1 = day + "/" + month + "/" + year;
+	date2 = tmr + "/" + month + "/" + year;
+	// date3 = tmr2 + "/" + month + "/" + year;
+	// date4 = tmr3 + "/" + month + "/" + year;
+    // date5 = tmr4 + "/" + month + "/" + year;
+    // delMan = "Steven"
+    orderDs.findAll({
+        include: [{model : stockRec,}, {model: payments, where:{deldate: date2, }}],
+
+    }).then((order) => {
+        payments.findAll({
+            // include:[{payments}],
+            // where:{
+            //     orderid: payments.id,
+            // }
+
+        }).then((payments) => {
+
+
+            // for (i = 0; i < 1000000; i++) {
+
+            // }
+            console.log(order, 'bayar');
+            res.render('delivery/deliveryTmr', {
+                // order: order,
+                payments: payments,
+                order: order
+            })
+        })
+    })
+});
+
+
+
+
+
+
+router.get('/delivering', (req, res) => {
+	var d = new Date();
+
+	//var lastDay = new Date(date.getFullYear(), d.getMonth() + 1, 0);
+	//document.getElementById('trying').innerHTML = lastDay;
+	var month = d.getMonth() + 1;
+	var day = d.getDate();
+	var year = d.getFullYear();
+	// day = day + i;
+	var tmr = day + 1;
+	// var tmr2 = day + 2;
+	// var tmr3 = day + 3;
+	// var tmr4 = day + 4;
+
+	if (month < 10) {
+		month = '0' + month;
+	}
+	if (day < 10) {
+		day = '0' + day;
+	}
+	if (tmr < 10) {
+		tmr = '0' + tmr;
+	}
+	// if (tmr2 < 10) {
+	// 	tmr2 = '0' + tmr2;
+	// }
+	// if (tmr3 < 10) {
+	// 	tmr3 = '0' + tmr3;
+	// }
+	// if (tmr4 < 10) {
+	// 	tmr4 = '0' + tmr4;
+	// }
+
+	//i++;
+	date1 = day + "/" + month + "/" + year;
+	date2 = tmr + "/" + month + "/" + year;
+	// date3 = tmr2 + "/" + month + "/" + year;
+	// date4 = tmr3 + "/" + month + "/" + year;
+	// date5 = tmr4 + "/" + month + "/" + year;
+    orderDs.findOne({
+        include: [{model : stockRec,}, {model: payments, where:{deldate: date1}}],
+
+    }).then((order) => {
+        res.render("delivery/startDeliver", {
+            order:order
+        })
+        
+    })
+});
+
+
+router.get('/destroy/:id', (req, res) => {
+	let theid = req.params.id;
+	// Select * from videos where videos.id=videoID and videos.userId=userID
+	orderDs.findOne({
+		where: {
+			orderid: theid,
+		},
+		// attributes: ['id', 'userId']
+	}).then((order) => {
+
+		// if record is found, user is owner of video
+		if (order != null) {
+			order.destroy({
+				where: {
+					orderid: theid
+				}
+			}).then(() => {
+                payments.findOne({
+                    where: {
+                        id: theid,
+                    },
+                    // attributes: ['id', 'userId']
+                }).then((payment) => {
+            
+                    // if record is found, user is owner of video
+                    if (payment != null) {
+                        payment.destroy({
+                            where: {
+                                id: theid
+                            }
+                        }).then(() => {
+
+				alertMessage(res, 'info', 'Delivery Completed', 'far fa-trash-alt', true);
+                res.redirect('/main_s/delivering'); // To retrieve all videos again
+			}).catch(err => console.log(err));
+        }
+    })
+    })  
+} 
+    });
+    
 });
 
 module.exports = router;

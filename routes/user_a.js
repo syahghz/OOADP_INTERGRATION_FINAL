@@ -26,6 +26,21 @@ router.post('/login', (req, res, next) => {
 });
 
      
+function checkWho(takeFirst) {
+    typeSet = false;
+    if (takeFirst == "D" || takeFirst == "d") {
+        typeSet = "delMan"
+        // return typeSet
+    }
+    if (takeFirst == "A" || takeFirst == "a") {
+        typeSet = "admin"
+    }
+    
+        // typeSet = false;
+    
+    return typeSet
+}
+
 
 
 router.post('/register', (req, res) => {
@@ -35,7 +50,15 @@ router.post('/register', (req, res) => {
     let { staffNo, email } = req.body;
     let password = Math.random().toString(36).replace('0.', '0');
     console.log(password)
-    let type = "admin";
+    var takeFirst = staffNo.slice(0, 1);
+    let type = checkWho(takeFirst)
+    
+    // let cRegion = checkRegion(type);
+
+    if(typeSet == false){
+        console.log('not true');
+        errors.push({ text: 'Invalid Staff Number' });
+      }
 
     if (errors.length > 0) {
         res.render('user/register', {
@@ -58,6 +81,7 @@ router.post('/register', (req, res) => {
                         staffNo,
                         email,
                         password,
+                        // cRegion,
                         type
                     });
                 } else {
