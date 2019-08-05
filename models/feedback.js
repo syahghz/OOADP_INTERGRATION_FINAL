@@ -22,7 +22,7 @@ const feedback = db.define('feedback', {
     rate: {
         type: Sequelize.STRING
     },
-    imageurl:{
+    imgurl:{
         type: Sequelize.STRING  
     }
 });
