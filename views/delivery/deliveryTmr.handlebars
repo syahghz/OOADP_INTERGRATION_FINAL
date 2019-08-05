@@ -9,28 +9,23 @@
     font-size:90%;
   }
 </style>
-
 </head>
 
 <body onload='check()'>
-
-  <header style="background-color: sandybrown;">
-
-  </header>
     <br>
     <h1>Your Deliveries</h1>
     <br>
 
-    <button onclick="tmr()">See Tomorrow</button>
+    <button onclick="today()">See Today</button>
 
     <script>
-      function tmr(){
-        
-        window.location.href = "/main_s/tomorrow";
-      }
+        function today(){
+            
+        window.location.href = "/main_s/home";
+        }
     </script>
 
-    <h3 style="text-align: center;">Today</h3>
+    <h3 style="text-align: center;">Tomorrow</h3>
 
 
     <p id="counting" style="text-align: center;"></p>
@@ -39,8 +34,8 @@
 
     <p style="text-align: center;"><b>Pick Up :</b> Keppel Logistics @ Tampines Logistics Park, 27 Greenwich Dr</p>
     <p style="text-align: center;">Singapore 533912</p>
-    <br><br><br>
-    <table style="margin-left: 17%; font-size: 120%;">
+    <br>
+    <table style="margin-left: 25%; font-size: 120%;">
         {{#if order}}
         <tr>
             <th class="size" id="bigger">Order No.</th>
@@ -49,7 +44,7 @@
             <th  class="size" >Item Description</th>
             {{!-- <th id="pickUpLdeloc">Pick Up Location</th> --}}
             <th  class="size" >Number of Items Ordered</th>
-            <th  class="size" >Package Collected?</th>
+            {{!-- <th  class="size" >Package Collected?</th> --}}
             {{!-- <th>Ordered Items</th> --}}
 
         </tr>
@@ -63,22 +58,20 @@
             <td style="padding: 0.2%;">{{stockrec.description}}</td>
             {{!-- <td style="padding: 0.2%; " id="pickUpLoc">Keppel Logistics @ Tampines Logistics Park, 27 Greenwich Dr <p>Singapore 533912</p></td> --}}
             <td style="padding: 0.01%;">{{oquantity}}</td>
-            <td style="padding: 0.01%;"><input name="box" onclick="makeId()" id="checking" type="checkbox" ></td>
+            {{!-- <td style="padding: 0.01%;"><input name="box" onclick="makeId()" id="checking" type="checkbox" ></td> --}}
 
             
 
             {{!-- <td>{{itemid}}</td> --}}
         </tr>
         {{/each}}
-            {{!-- <br><br><br> --}}
+            <br><br><br>
     {{!-- <button style="text-align: center; margin-left: 43%;" onclick="myFunction()">Start Delivering!</button> --}}
         {{else}}
-        <h2 style="text-align: center">There are no deliveries today</h2>
+        <h2 style="text-align: center">Currently , there are no deliveries for tomorrow</h2>
         {{/if}}
-        
     </table>
-    <br><br>
-    <button style="text-align: center; margin-left: 43%;" onclick="myFunction()">Start Delivering!</button>
+
 
     {{!-- <br><br><br>
     <button style="text-align: center; margin-left: 43%;" onclick="myFunction()">Start Delivering!</button> --}}
