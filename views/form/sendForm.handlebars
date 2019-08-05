@@ -3,12 +3,13 @@
     <div class="card card-body">
         <h3>Create Form</h3>
         <form action="../form/sendForm" method="post" id="sendForm">
+        <p id="merchant" name="merchant">{{user.name}}</p>
             <div class="row"> {{!—- row 1--}}
                 <div class="col-lg-9">
                     <div class="form-group">
                         {{!—- Title --}}
                         <label class="font-italic" for="itemName">Item Name</label>
-                        <input class="form-control" id="title" name="title" rows="1"
+                        <input class="form-control" id="itemName" name="itemName" rows="1"
                             onblur="ProperCase('itemName')" value="{{itemName}}">
                       
                      

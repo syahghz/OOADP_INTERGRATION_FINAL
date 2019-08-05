@@ -370,7 +370,7 @@ router.get("/search/ajax/:query", ensureAuthenticated, (req, res) => {
 
 
 router.get('/search', ensureAuthenticated, (req, res) => {
-    res.render('form/tryAjax', {});
+    res.render('form/trash', {});
 })
 
 
@@ -413,7 +413,7 @@ router.get('/delete/:id', ensureAuthenticated, (req, res) => {
             }).then((form) => {
                 // For icons to use, go to https://glyphsearch.com/
                 alertMessage(res, 'success', 'Dispatch ID ' + dispatchId + ' successfully deleted.', 'fa fa-hand-peace-o', true);
-                res.redirect('/form/itemOrderList');
+                res.redirect('/form/trash');
             }).catch(err => console.log(err));
         } else {
             // Video does not belong to the current user
@@ -425,64 +425,64 @@ router.get('/delete/:id', ensureAuthenticated, (req, res) => {
 });
 
 
-// Shows edit video page
-router.get('/edit/:id', ensureAuthenticated, (req, res) => {
-    Form.findOne({
-        where: {
-            id: req.params.id
-        }
-    }).then((forms) => {
+// // Shows edit video page
+// router.get('/edit/:id', ensureAuthenticated, (req, res) => {
+//     Form.findOne({
+//         where: {
+//             id: req.params.id
+//         }
+//     }).then((forms) => {
 
-        if (req.user.id === forms.userId) {
-            checkOptions(forms); 
-            // call views/video/editVideo.handlebar to render the edit video page
-            res.render('form/sendForm', {
-                forms // passes video object to handlebar
-            });
-        } else {
-            // Video does not belong to the current user
-            alertMessage(res, 'danger', 'Unauthorized Access.', 'fas fa-exclamation-circle', true);
-            req.logout();
-            res.redirect('/');
-        }
-    }).catch(err => console.log(err)); // To catch no video ID
-});
-// Save edited video
-router.put('/saveEditedOrder/:id', ensureAuthenticated, (req, res) => {
-    let merchant = req.user.name;
-    let itemName = req.body.itemName;
-    let price = req.body.price;
-    let itemCode = req.body.itemCode;
-    let description = req.body.description.slice(0, 1999);
-    let quantity = req.body.quantity;
-    let referenceNo = req.body.referenceNo;
-    let dateofDelivery = moment(req.body.dateofDelivery, 'DD/MM/YYYY');
-    let userId = req.user.id;
-    let posterURL = req.body.posterURL;
-    // Retrieves edited values from req.body
-    Form.update({
-        // Set variables here to save to the videos table
-        merchant,
-        itemName,
-        price,
-        itemCode,
-        description,
-        quantity,
-        referenceNo,
-        dateofDelivery,
-        userId,
-        posterURL,
-        status: "pending"
-    }, {
-            where: {
-                id: formID
-            }
-        }).then(() => {
-            // After saving, redirect to router.get(/listVideos...) to retrieve all updated
-            // videos
-            res.redirect('/form/itemOrderList');
-        }).catch(err => console.log(err));
-});
+//         if (req.user.id === forms.userId) {
+//             checkOptions(forms); 
+//             // call views/video/editVideo.handlebar to render the edit video page
+//             res.render('form/sendForm', {
+//                 forms // passes video object to handlebar
+//             });
+//         } else {
+//             // Video does not belong to the current user
+//             alertMessage(res, 'danger', 'Unauthorized Access.', 'fas fa-exclamation-circle', true);
+//             req.logout();
+//             res.redirect('/');
+//         }
+//     }).catch(err => console.log(err)); // To catch no video ID
+// });
+// // Save edited video
+// router.put('/saveEditedOrder/:id', ensureAuthenticated, (req, res) => {
+//     let merchant = req.user.name;
+//     let itemName = req.body.itemName;
+//     let price = req.body.price;
+//     let itemCode = req.body.itemCode;
+//     let description = req.body.description.slice(0, 1999);
+//     let quantity = req.body.quantity;
+//     let referenceNo = req.body.referenceNo;
+//     let dateofDelivery = moment(req.body.dateofDelivery, 'DD/MM/YYYY');
+//     let userId = req.user.id;
+//     let posterURL = req.body.posterURL;
+//     // Retrieves edited values from req.body
+//     Form.update({
+//         // Set variables here to save to the videos table
+//         merchant,
+//         itemName,
+//         price,
+//         itemCode,
+//         description,
+//         quantity,
+//         referenceNo,
+//         dateofDelivery,
+//         userId,
+//         posterURL,
+//         status: "pending"
+//     }, {
+//             where: {
+//                 id: formID
+//             }
+//         }).then(() => {
+//             // After saving, redirect to router.get(/listVideos...) to retrieve all updated
+//             // videos
+//             res.redirect('/form/itemOrderList');
+//         }).catch(err => console.log(err));
+// });
 
 
 // router.get('/ajaxForm', (req, res) => {
