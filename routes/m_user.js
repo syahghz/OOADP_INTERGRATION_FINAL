@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const User = require('../models/aUser');
@@ -25,7 +26,7 @@ router.post('/m_register', (req, res) => {
     let errors = [];
     // Retrieves fields from register page from request body
     let { name, email, password, password2 } = req.body;
-    let type ="muser";
+    let type = "muser";
 
     // Checks if both passwords entered are the same
     if (password !== password2) {
@@ -37,13 +38,13 @@ router.post('/m_register', (req, res) => {
         errors.push({ text: 'Password must be at least 4 characters' });
     };
     if (errors.length > 0) {
-        res.render('m_user/m_register', {
+        res.render('user/m_register', {
             errors,
             name,
             email,
             password,
             password2,
-            type
+            type,
         });
     } else {
         // If all is well, checks if user is already registered
@@ -58,8 +59,8 @@ router.post('/m_register', (req, res) => {
                         email,
                         password,
                         password2,
-                        type
-                    });
+                        type,
+                    })
                 } else {
                     // Encrypt the password
                     var salt = bcrypt.genSaltSync(10);
@@ -70,7 +71,7 @@ router.post('/m_register', (req, res) => {
                     User.create({ name, email, password, type })
                         .then(user => {
                             alertMessage(res, 'success', user.name + ' added. Please login', 'fas fa-sign-in-alt', true);
-                            res.redirect('/m_user/showRegister');
+                            res.redirect('/showLogin');
                         })
                         .catch(err => console.log(err));
                 }
@@ -89,4 +90,4 @@ router.get('/', (req, res) => {
     res.render('index', { title: title }) // renders views/index.handlebars
 });
 
-module.exports = router;
+module.exports = router; 
