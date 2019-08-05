@@ -106,18 +106,4 @@ router.get('/logout', (req, res) => {
 	req.logout();
 	res.redirect('/');
 });
-
-//Nicole
-router.get('/showLogin', (req, res) => {
-	res.render('user/m_login') // renders views/user/login.handlebars
-});
-
-router.get('/showRegister', (req, res) => {
-	res.render('user/m_register') // renders views/register.handlebars
-});
-
-router.get('/logouteu', (req, res) => {
-	req.logout();
-	res.redirect('/');
-});
 module.exports = router;
